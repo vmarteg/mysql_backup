@@ -34,7 +34,7 @@ if [ "$DAY_OF_MONTH" == "01" ] || [ ! -L "${INCREMENTAL_BASEDIR}" ]; then
         cd $BACKUP_DIR && rm -rf *
         mkdir -p $BACKUP_DIR/$STORAGE_DIR
         createFullBackup;
-        rsync -e "ssh -c arcfour" -v -aSH $TARGET_DIR mysqlbackup@gorilko.lan.local:~/backup/db/$STORAGE_DIR/
+        rsync -e "ssh -c arcfour" -v -aSH $TARGET_DIR mysqlbackup@server:~/backup/db/$STORAGE_DIR/
     else
         mkdir -p $BACKUP_DIR/$STORAGE_DIR
         createIncrementBackup;
